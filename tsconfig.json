@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "lib": ["es5", "es6", "dom"],
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "noEmit": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
+}
