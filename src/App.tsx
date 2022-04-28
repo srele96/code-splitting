@@ -1,15 +1,33 @@
-import { useState } from 'react';
+import { lazy, Suspense } from 'react';
 
-export function App() {
-  // add state and modify component to verify that react-refresh works
-  const [count, setCount] = useState(0);
+const Nav = lazy(() => import('Nav'));
+const Main = lazy(() => import('Main'));
+const Aside = lazy(() => import('Aside'));
+const Footer = lazy(() => import('Footer'));
 
+function Spinner() {
+  // add aria role for loader
+  return <div>Loading...</div>;
+}
+
+export default function App() {
   return (
-    <div>
-      <h1>Code Splitting</h1>
-      <p>Initial setup with counter.</p>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-    </div>
+    <>
+      <Suspense fallback={<Spinner />}>
+        <Nav />
+      </Suspense>
+
+      <Suspense fallback={<Spinner />}>
+        <Main />
+      </Suspense>
+
+      <Suspense fallback={<Spinner />}>
+        <Aside />
+      </Suspense>
+
+      <Suspense fallback={<Spinner />}>
+        <Footer />
+      </Suspense>
+    </>
   );
 }
