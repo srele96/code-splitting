@@ -1,5 +1,6 @@
 node_modules
 yarn*.log
+.env
 
 # -----------------------------------------------------------------------------
 # Copied what I needed for WebStorm from:
